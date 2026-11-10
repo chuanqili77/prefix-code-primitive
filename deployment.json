@@ -1,0 +1,16 @@
+{
+  "network": "Stable Studionet",
+  "chainId": 61999,
+  "rpcUrl": "https://studio.genlayer.com/api",
+  "explorer": "https://explorer-studio.genlayer.com/address/0xc660b5e848558C13088B89E7d215Ba3562E6a16f",
+  "studio": "https://studio.genlayer.com/?import-contract=0xc660b5e848558C13088B89E7d215Ba3562E6a16f",
+  "contractAddress": "0xc660b5e848558C13088B89E7d215Ba3562E6a16f",
+  "deployTxHash": "0x4d135161c69c94a4ce7aa906cc41bd72e9c5d74e0c2aff4188fe82e0037f3eb3",
+  "deployer": "0xd8094FF78CE163148D8190CE4bE5475c4F2c08D3",
+  "contractFile": "contracts/prefix_code.py",
+  "contractSha256": "c91d212b83bc4591a8afaafee2af8b1554a9b45550d6f1ee02528c300e6dff87",
+  "deployedCodeSha256": "c91d212b83bc4591a8afaafee2af8b1554a9b45550d6f1ee02528c300e6dff87",
+  "deployedCodeMatchesSource": true,
+  "deployedAt": "2026-11-10T17:15:15.104Z",
+  "receiptStatus": "FINALIZED"
+}

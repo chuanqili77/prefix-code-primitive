@@ -1,0 +1,195 @@
+{
+  "network": "Stable Studionet",
+  "chainId": 61999,
+  "rpcUrl": "https://studio.genlayer.com/api",
+  "contractAddress": "0xc660b5e848558C13088B89E7d215Ba3562E6a16f",
+  "deployTxHash": "0x4d135161c69c94a4ce7aa906cc41bd72e9c5d74e0c2aff4188fe82e0037f3eb3",
+  "contractFile": "contracts/prefix_code.py",
+  "contractSha256": "c91d212b83bc4591a8afaafee2af8b1554a9b45550d6f1ee02528c300e6dff87",
+  "deployedCodeSha256": "c91d212b83bc4591a8afaafee2af8b1554a9b45550d6f1ee02528c300e6dff87",
+  "deployedCodeMatchesSource": true,
+  "accounts": {
+    "creator": "0x86E475E570327766250bb18EbFab547ca8f120e1"
+  },
+  "cases": [
+    {
+      "id": "C-FREE-01",
+      "codewords": [
+        "0",
+        "10",
+        "110",
+        "111"
+      ],
+      "expected_pair_results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "expected_verdict": "PREFIX_FREE",
+      "expected_witness": null
+    },
+    {
+      "id": "C-BAD-01",
+      "codewords": [
+        "0",
+        "10",
+        "110",
+        "111"
+      ],
+      "expected_pair_results": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "expected_verdict": "PREFIX_FREE",
+      "expected_witness": null,
+      "bad_claim": {
+        "claimed_pair_results": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          false
+        ],
+        "claimed_verdict": "PREFIX_FREE",
+        "error": "PAIR_MISMATCH"
+      },
+      "record_expected": false
+    },
+    {
+      "id": "C-COLL-01",
+      "codewords": [
+        "0",
+        "01"
+      ],
+      "expected_pair_results": [
+        false
+      ],
+      "expected_verdict": "COLLISION",
+      "expected_witness": {
+        "pair_index": 0,
+        "i": 0,
+        "j": 1,
+        "word_i": "0",
+        "word_j": "01",
+        "prefix": "0"
+      }
+    }
+  ],
+  "transactions": [
+    {
+      "label": "create-C-FREE-01-good",
+      "method": "create_case",
+      "args": [
+        "C-FREE-01",
+        "[\"0\",\"10\",\"110\",\"111\"]",
+        "[true,true,true,true,true,true]",
+        "PREFIX_FREE"
+      ],
+      "sender": "0x86E475E570327766250bb18EbFab547ca8f120e1",
+      "value_wei": "0",
+      "txHash": "0x772d98881a8b09db8e4c920fbed284b853290b62c989b7cd8a25aa77e83f0127",
+      "receiptStatus": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "expected_error": null,
+      "stderr_excerpt": "{\"codewords\":[\"0\",\"10\",\"110\",\"111\"],\"creator\":\"0x86e475e570327766250bb18ebfab547ca8f120e1\",\"id\":\"C-FREE-01\",\"pair_results\":[true,true,true,true,true,true],\"state\":\"DECIDED\",\"verdict\":\"PREFIX_FREE\",\"witness\":null}"
+    },
+    {
+      "label": "create-C-BAD-01-bad-claim",
+      "method": "create_case",
+      "args": [
+        "C-BAD-01",
+        "[\"0\",\"10\",\"110\",\"111\"]",
+        "[true,true,true,true,true,false]",
+        "PREFIX_FREE"
+      ],
+      "sender": "0x86E475E570327766250bb18EbFab547ca8f120e1",
+      "value_wei": "0",
+      "txHash": "0xfdfdc3240698e97bce6917056fde022ee4b9d6ca8ba1a30d783bfa9291365f5d",
+      "receiptStatus": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "ERROR",
+      "expected_error": "PAIR_MISMATCH",
+      "stderr_excerpt": "EXPECTED: PAIR_MISMATCH"
+    },
+    {
+      "label": "create-C-COLL-01-good",
+      "method": "create_case",
+      "args": [
+        "C-COLL-01",
+        "[\"0\",\"01\"]",
+        "[false]",
+        "COLLISION"
+      ],
+      "sender": "0x86E475E570327766250bb18EbFab547ca8f120e1",
+      "value_wei": "0",
+      "txHash": "0xcb0865352580959784365ef8e74b82a471cb681459d6ed5ed88571ead290b780",
+      "receiptStatus": "FINALIZED",
+      "consensus": "MAJORITY_AGREE",
+      "execution": "SUCCESS",
+      "expected_error": null,
+      "stderr_excerpt": "{\"codewords\":[\"0\",\"01\"],\"creator\":\"0x86e475e570327766250bb18ebfab547ca8f120e1\",\"id\":\"C-COLL-01\",\"pair_results\":[false],\"state\":\"DECIDED\",\"verdict\":\"COLLISION\",\"witness\":{\"i\":0,\"j\":1,\"pair_index\":0,\"prefix\":\"0\",\"word_i\":\"0\",\"word_j\":\"01\"}}"
+    }
+  ],
+  "finalReadbacks": {
+    "cases": [
+      {
+        "codewords": [
+          "0",
+          "10",
+          "110",
+          "111"
+        ],
+        "creator": "0x86e475e570327766250bb18ebfab547ca8f120e1",
+        "id": "C-FREE-01",
+        "pair_results": [
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "state": "DECIDED",
+        "verdict": "PREFIX_FREE",
+        "witness": null
+      },
+      {
+        "codewords": [
+          "0",
+          "01"
+        ],
+        "creator": "0x86e475e570327766250bb18ebfab547ca8f120e1",
+        "id": "C-COLL-01",
+        "pair_results": [
+          false
+        ],
+        "state": "DECIDED",
+        "verdict": "COLLISION",
+        "witness": {
+          "i": 0,
+          "j": 1,
+          "pair_index": 0,
+          "prefix": "0",
+          "word_i": "0",
+          "word_j": "01"
+        }
+      }
+    ],
+    "stats": {
+      "collision": 1,
+      "prefix_free": 1,
+      "total": 2
+    },
+    "readBackAt": "2026-11-10T17:17:21.495Z"
+  },
+  "generatedAt": "2026-11-10T17:17:21.495Z"
+}
